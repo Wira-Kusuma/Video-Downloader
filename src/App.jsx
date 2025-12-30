@@ -5,6 +5,7 @@ export default function App() {
   return (
     <>
       <Main />
+      <About />
     </>
   );
 }
@@ -69,6 +70,7 @@ function Main() {
 
   return (
     <main>
+      <h1>Youtube video downloader</h1>
       
       <form className='add' onSubmit={handleSubmit}>
         
@@ -82,9 +84,11 @@ function Main() {
         <button type="submit" disabled={loading}>{loading ? "Downloading..." : "Download"}</button>
 
       </form>
-      <p>current type {downloadType}</p>
-      <button onClick={() => setDownloadType('mp3')}>Mp3</button>
-      <button onClick={() => setDownloadType('mp4')}>Mp4</button>
+      <div className="downloadType">
+        <p>current type {downloadType}</p>
+        <button onClick={() => setDownloadType('mp3')}>Mp3</button>
+        <button onClick={() => setDownloadType('mp4')}>Mp4</button>
+      </div>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
       {downloadUrl && <p style={{ color: "green" }}>
@@ -92,4 +96,19 @@ function Main() {
       </p>}
     </main>
   );
+}
+
+function About(){
+  return(
+    <div className="about">
+      <h2>about</h2>
+      <p>this <b>youtube video downloader</b> using 
+        <a href="https://ytdlp.lunox.io/"> https://ytdlp.lunox.io/ </a>
+        API, see the <b>web-dlp API Documentation</b> here <a href="https://ytdlp.lunox.io/docs">https://ytdlp.lunox.io/docs</a>
+      </p>
+      <a href="https://github.com/Wira-Kusuma/Video-Downloader">Github contribution here!</a>
+      
+      
+    </div>
+  )
 }
