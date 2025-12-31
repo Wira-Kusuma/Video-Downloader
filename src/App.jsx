@@ -15,7 +15,7 @@ function Main() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [downloadUrl, setDownloadUrl] = useState("");
-  const [downloadType, setDownloadType] = useState('mp4');
+  const [downloadFormat, setDownloadFormat] = useState('mp4');
   const API_URL = "https://ytdlp.lunox.io";
 
   // Create a download job
@@ -24,7 +24,7 @@ function Main() {
     const createResponse = await fetch(`${API_URL}/request`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url, format: downloadType }),
+      body: JSON.stringify({ url, format: downloadFormat }),
     });
     const { job_id } = await createResponse.json();
     console.log("Job created:", job_id);
@@ -84,10 +84,10 @@ function Main() {
         <button type="submit" disabled={loading}>{loading ? "Downloading..." : "Download"}</button>
 
       </form>
-      <div className="downloadType">
-        <p>current type {downloadType}</p>
-        <button onClick={() => setDownloadType('mp3')}>Mp3</button>
-        <button onClick={() => setDownloadType('mp4')}>Mp4</button>
+      <div className="downloadFormat">
+        <p>current type {downloadFormat}</p>
+        <button onClick={() => setDownloadFormat('mp3')}>Mp3</button>
+        <button onClick={() => setDownloadFormat('mp4')}>Mp4</button>
       </div>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
