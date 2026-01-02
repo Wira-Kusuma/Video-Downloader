@@ -10,7 +10,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 5rem;
+  padding: 2rem 0 0 0;
 }
 
 body{
@@ -38,13 +39,13 @@ form>input,form>button{
   padding: 0.5rem;
 }
 
-.downloadType{
+.downloadFormat{
   display: flex;
   gap: 1rem;
   align-items: center;
 }
 
-.downloadType>button{
+.downloadFormat>button{
   padding: 0.5rem;
 }
 
